@@ -1,4 +1,4 @@
-import imp
+import importlib
 from collections import namedtuple
 
 import torch
@@ -242,3 +242,4 @@ class TVLoss(nn.Module):
 #         mse = F.mse_loss(predictions, targets)
 #         psnr = 10 * torch.log10(self.max_val ** 2 / mse)
 #         return psnr
+
