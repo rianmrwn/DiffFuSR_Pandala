@@ -29,8 +29,9 @@ def load_model(opt, ckpt_path=None, strict=True, overwrite_hparams=True):
         return
     model = ModelRegistry.get(model_name)
     if overwrite_hparams:
-        model = model.load_from_checkpoint(ckpt_path, opt=opt, strict=strict)
+        model = model.load_from_checkpoint(ckpt_path, opt=opt, strict=strict, map_location="cuda")
     else:
         model = model.load_from_checkpoint(ckpt_path, strict=strict)
     print("Model loaded from {0}".format(ckpt_path))
     return model
+
