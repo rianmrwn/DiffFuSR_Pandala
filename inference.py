@@ -18,11 +18,7 @@ def run_inference(input_tiff, output_folder, output_name, checkpoint, scale):
 
     # Load input Sentinel-2 TIFF (assume shape: H x W x 12)
     img = tifffile.imread(input_tiff)
-    if img.ndim == 2:
-        raise ValueError("Input image must have multiple bands (e.g., 12 for Sentinel-2).")
-    if img.shape[2] != 12:
-        raise ValueError(f"Expected 12 bands, got {img.shape[2]}.")
-
+    
     # Prepare input tensor
     img_tensor = torch.from_numpy(img.transpose(2, 0, 1)).unsqueeze(0).float().to(device)  # Shape: 1 x 12 x H x W
 
@@ -51,5 +47,6 @@ if __name__ == "__main__":
     parser.add_argument("--checkpoint", type=str, required=True, help="Path to DiffFuSR model checkpoint (.ckpt)")
     parser.add_argument("--scale", type=int, choices=[2, 4], default=4, help="Super-resolution scale factor (x2 or x4)")
     args = parser.parse_args()
+
 
     run_inference(args.input_tiff, args.output_folder, args.output_name, args.checkpoint, args.scale)
