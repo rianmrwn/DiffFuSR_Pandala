@@ -29,4 +29,5 @@ shapely
 geojson
 torch-geometric==2.6.1
 h5netcdf>=1.3.0
+imagecodecs
 huggingface_hub
