@@ -16,7 +16,7 @@ def run_multispectral_inference(input_tiff, output_folder, output_name, checkpoi
 
     # Load model
     device = torch.device("cuda")
-    model = load_model(checkpoint, strict=False, map_location="cuda")
+    model = load_model(checkpoint, strict=False)
     model.to(device)
     model.eval()
 
@@ -53,3 +53,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     run_multispectral_inference(args.input_tiff, args.output_folder, args.output_name, args.checkpoint)
+
