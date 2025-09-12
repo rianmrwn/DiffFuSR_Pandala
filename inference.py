@@ -11,7 +11,7 @@ def run_inference(input_tiff, output_folder, output_name, checkpoint, scale):
     config = read_yaml(os.path.join(exp_path, "hparams.yaml"))
 
     # Load model
-    device = torch.device("cpu")
+    device = torch.device("cuda")
     model = load_model(config, checkpoint, strict=False)
     model.to(device)
     model.eval()
@@ -51,4 +51,5 @@ if __name__ == "__main__":
 
 
     run_inference(args.input_tiff, args.output_folder, args.output_name, args.checkpoint, args.scale)
+
 
