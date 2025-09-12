@@ -36,7 +36,8 @@ def run_inference(input_tiff, output_folder, output_name, checkpoint, scale):
     # If shape is C x H x W, transpose to H x W x C
     if sr_img.shape[0] in [3, 12]:
         sr_img = sr_img.transpose(1, 2, 0)
-    tifffile.imwrite(out_path, sr_img.astype("float32"))
+    # tifffile.imwrite(out_path, sr_img.astype("float32"))
+    tifffile.imwrite(out_path, sr_img.astype("uint16"))
     print(f"Super-resolved image saved to: {out_path}")
 
 if __name__ == "__main__":
@@ -50,3 +51,4 @@ if __name__ == "__main__":
 
 
     run_inference(args.input_tiff, args.output_folder, args.output_name, args.checkpoint, args.scale)
+
