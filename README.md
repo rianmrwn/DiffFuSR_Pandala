@@ -7,6 +7,8 @@
 
 ---
 
+# OFFICIAL TUTORIAL
+
 ## 0. Environment setup 
 
 ```bash
@@ -151,6 +153,16 @@ logs/
    └─ best.ckpt
 ```
 
+# PANDALA TUTORIAL (Inference)
+1. Clone GitHub ini
+2. Download model pretrained yang sudah diberikan (NAIP Harmony, NAIP non-Harmony, dan Worldstrat Degradation) dengan menggunakan download_pretrainedmodel.py
+3. Running inference.py (single inference) atau jika terlalu berat pakai inference_patches.py
+
+### contoh argument running:
+```
+!python /content/DiffFuSR_Pandala/inference.py --input_tiff /content/sentinel2_Sawit_fix.tif --output_folder /content/output_SR/ --output_name sr_sawit2025_baru.tif --checkpoint /content/DiffFuSR_Pandala/check/data/naip_harm/last.ckpt --scale 4
+```
+
 ## Citation
 
 If you use this pipeline, please cite our paper and also the works which this is based on.
@@ -163,4 +175,5 @@ https://github.com/hanlinwu/BlindSRSNF
 https://github.com/ESAOpenSR/opensr-test
 
 https://github.com/esaOpenSR/opensr-degradation/
+
 
