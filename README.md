@@ -7,6 +7,9 @@
 
 ---
 
+Original GitHub:
+https://github.com/NorskRegnesentral/DiffFuSR
+
 # OFFICIAL TUTORIAL
 
 ## 0. Environment setup 
@@ -175,5 +178,6 @@ https://github.com/hanlinwu/BlindSRSNF
 https://github.com/ESAOpenSR/opensr-test
 
 https://github.com/esaOpenSR/opensr-degradation/
+
 
 
